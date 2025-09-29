@@ -1,32 +1,32 @@
 A very short intuitive proof of the Pythagoras theorem
 
-1. Let ABC be a right triangle with the right angle at B. Let D be the foot of the perpendicular from B to the hypotenuse AC (so D lies on the segment AC and BD ⟂ AC).
+1. Let ABC be a right triangle with the right angle at B. Let H be the foot of the perpendicular from B to the hypotenuse AC (so H lies on the segment AC and BH ⟂ AC).
 
-2. Observe the three right triangles ABC, ADB and BDC. Triangle ADB has a right angle at D and shares angle A with ABC, so by AA (angle–angle) similarity we have
+2. Observe the three right triangles ABC, AHB and BHC. Triangle AHB has a right angle at H and shares angle A with ABC, so by AA (angle–angle) similarity we have
 
-    - ABC ~ ADB.
+    - ABC ~ AHB.
 
-    Similarly, triangle BDC has a right angle at D and shares angle C with ABC, so
+    Similarly, triangle BHC has a right angle at H and shares angle C with ABC, so
 
-    - ABC ~ BDC.
+    - ABC ~ BHC.
 
     Thus all three triangles are pairwise similar.
 
-3. From the similarity between ABC and ADB the corresponding sides are in proportion. Matching angles gives the correspondence $A\leftrightarrow A$, $B\leftrightarrow D$, $C\leftrightarrow B$, so the side $AC$ (opposite the right angle at $B$ in $\triangle ABC$) corresponds to $AB$ (opposite the right angle at $D$ in $\triangle ADB$). Similarly, from the similarity between $\triangle ABC$ and $\triangle BDC$ we get the correspondence $A\leftrightarrow B$, $B\leftrightarrow D$, $C\leftrightarrow C$, so $AC$ corresponds to $BC$.
+3. From the similarity between ABC and AHB the corresponding sides are in proportion. Matching angles gives the correspondence $A\leftrightarrow A$, $B\leftrightarrow H$, $C\leftrightarrow B$, so the side $AC$ (opposite the right angle at $B$ in $\triangle ABC$) corresponds to $AB$ (opposite the right angle at $H$ in $\triangle AHB$). Similarly, from the similarity between $\triangle ABC$ and $\triangle BHC$ we get the correspondence $A\leftrightarrow B$, $B\leftrightarrow H$, $C\leftrightarrow C$, so $AC$ corresponds to $BC$.
 
 4. Area scales with the square of a linear scale factor for similar figures. Hence
 
-    $\dfrac{[ADB]}{[ABC]} = \left(\dfrac{AB}{AC}\right)^2$, and
+    $\dfrac{[AHB]}{[ABC]} = \left(\dfrac{AB}{AC}\right)^2$, and
 
-    $\dfrac{[BDC]}{[ABC]} = \left(\dfrac{BC}{AC}\right)^2$.
+    $\dfrac{[BHC]}{[ABC]} = \left(\dfrac{BC}{AC}\right)^2$.
 
     Equivalently
 
-    $\dfrac{[ABC]}{AC^2} = \dfrac{[ADB]}{AB^2} = \dfrac{[BDC]}{BC^2}$,
+    $\dfrac{[ABC]}{AC^2} = \dfrac{[AHB]}{AB^2} = \dfrac{[BHC]}{BC^2}$,
 
     where $[T]$ denotes the area of triangle $T$.
 
-5. The big triangle's area is the sum of the two smaller ones: $[ABC] = [ADB] + [BDC]$. Divide both sides by $AC^2$ and use the equal ratios from step 4:
+5. The big triangle's area is the sum of the two smaller ones: $[ABC] = [AHB] + [BHC]$. Divide both sides by $AC^2$ and use the equal ratios from step 4:
 
     $1 = \dfrac{AB^2}{AC^2} + \dfrac{BC^2}{AC^2}$.
 
@@ -44,12 +44,12 @@ A very short intuitive proof of the Pythagoras theorem
 
 The argument in this file uses area-scaling for similar triangles (area ratios scale with the square of linear ratios). Textbooks often present the closely related proportional-side form obtained directly from similarity:
 
-- From similarity one gets $\dfrac{AB}{AC}=\dfrac{AD}{AB}$, hence $AB^2=AC\cdot AD$.
-- Similarly $\dfrac{BC}{AC}=\dfrac{DC}{BC}$ gives $BC^2=AC\cdot DC$.
+- From similarity one gets $\dfrac{AB}{AC}=\dfrac{AH}{AB}$, hence $AB^2=AC\cdot AH$.
+- Similarly $\dfrac{BC}{AC}=\dfrac{HC}{BC}$ gives $BC^2=AC\cdot HC$.
 
 Adding these two equalities yields
 
-$AB^2+BC^2=AC(AD+DC)=AC^2$.
+$AB^2+BC^2=AC(AH+HC)=AC^2$.
 
 This is algebraically equivalent to the area-based presentation in the main text; both rely on the same triangle similarities and differ only in whether one uses areas (scaling by the square of the scale factor) or direct side proportions as the primary step.
 

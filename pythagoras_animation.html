@@ -80,8 +80,8 @@
         <!-- ViewBox coordinates are SVG pixels. We choose coordinates so B is a right angle. -->
   <svg viewBox="-60 -160 760 1040" aria-label="Animated geometric proof">
           <!-- Triangle points: A(150,350), B(150,150), C(450,150) so angle at B is 90°. -->
-          <!-- Hypotenuse AC vector v=(300,-200). D divides AC in ratio AD:DC = AB^2:BC^2 = 200^2:300^2 = 4:9, so t=4/13. -->
-          <!-- D = A + t*v ≈ (242.3077, 288.4615). -->
+          <!-- Hypotenuse AC vector v=(300,-200). H divides AC in ratio AH:HC = AB^2:BC^2 = 200^2:300^2 = 4:9, so t=4/13. -->
+          <!-- H = A + t*v ≈ (242.3077, 288.4615). -->
 
           <!-- Grid for context -->
           <defs>
@@ -116,24 +116,24 @@
           <line id="BC" class="leg-a fade" x1="150" y1="150" x2="450" y2="150" />
           <line id="AC" class="hyp fade" x1="150" y1="350" x2="450" y2="150" />
 
-          <!-- Altitude BD to hypotenuse AC -->
-          <line id="BD" class="altitude fade" x1="150" y1="150" x2="242.3077" y2="288.4615" />
+          <!-- Altitude BH to hypotenuse AC -->
+          <line id="BH" class="altitude fade" x1="150" y1="150" x2="242.3077" y2="288.4615" />
 
           <!-- Sub-triangles -->
-          <polygon id="ADB" class="tri-adb fade" points="150,350 150,150 242.3077,288.4615" />
-          <polygon id="BDC" class="tri-bdc fade" points="150,150 242.3077,288.4615 450,150" />
+          <polygon id="AHB" class="tri-adb fade" points="150,350 150,150 242.3077,288.4615" />
+          <polygon id="BHC" class="tri-bdc fade" points="150,150 242.3077,288.4615 450,150" />
 
           <!-- Points -->
           <circle id="Apt" class="pt fade" cx="150" cy="350" r="4" />
           <circle id="Bpt" class="pt fade" cx="150" cy="150" r="4" />
           <circle id="Cpt" class="pt fade" cx="450" cy="150" r="4" />
-          <circle id="Dpt" class="pt fade" cx="242.3077" cy="288.4615" r="4" />
+          <circle id="Hpt" class="pt fade" cx="242.3077" cy="288.4615" r="4" />
 
           <!-- Labels -->
           <text id="Alab" class="label fade" x="132" y="364">A</text>
           <text id="Blab" class="label fade" x="132" y="146">B</text>
           <text id="Clab" class="label fade" x="456" y="146">C</text>
-          <text id="Dlab" class="label fade" x="248" y="284">D</text>
+          <text id="Hlab" class="label fade" x="248" y="284">H</text>
 
           <!-- Side labels -->
           <text id="labAB" class="sidelabel fade" x="110" y="255">c = |AB|</text>
@@ -145,8 +145,8 @@
 
           <!-- Area labels -->
           <text id="areaABC" class="arealabel fade" x="205" y="210">[ABC]</text>
-          <text id="areaADB" class="arealabel fade" x="160" y="255">[ADB]</text>
-          <text id="areaBDC" class="arealabel fade" x="305" y="220">[BDC]</text>
+          <text id="areaAHB" class="arealabel fade" x="160" y="255">[AHB]</text>
+          <text id="areaBHC" class="arealabel fade" x="305" y="220">[BHC]</text>
         </svg>
       </div>
 
@@ -174,9 +174,9 @@
           <ol id="stepList" class="note" style="margin: 0 0 0 18px;">
             <li>Triangle setup (right angle at B)</li>
             <li>Label sides a, b, c</li>
-            <li>Draw altitude BD to hypotenuse AC</li>
-            <li>Sub-triangles ADB and BDC partition area</li>
-            <li>Similarity: △ABC ~ △ADB ~ △BDC</li>
+            <li>Draw altitude BH to hypotenuse AC</li>
+            <li>Sub-triangles AHB and BHC partition area</li>
+            <li>Similarity: △ABC ~ △AHB ~ △BHC</li>
             <li>Area ratios scale as square of side ratios</li>
             <li>Conclude b² = a² + c²</li>
           </ol>
@@ -201,44 +201,44 @@
       },
       {
         title: 'Step 3 – Drop the altitude',
-        desc: 'From the right angle B, drop the perpendicular BD to the hypotenuse AC. D is the foot.',
-        math: 'BD ⟂ AC',
-        show: ['BD','Dpt','Dlab']
+        desc: 'From the right angle B, drop the perpendicular BH to the hypotenuse AC. H is the foot.',
+        math: 'BH ⟂ AC',
+        show: ['BH','Hpt','Hlab']
       },
       {
         title: 'Step 4 – Area partition',
-        desc: 'The altitude splits △ABC into two smaller triangles: △ADB and △BDC. Their areas sum to the whole.',
-        math: '[ABC] = [ADB] + [BDC]',
-        show: ['ADB','BDC','areaABC','areaADB','areaBDC','ABC_copy']
+        desc: 'The altitude splits △ABC into two smaller triangles: △AHB and △BHC. Their areas sum to the whole.',
+        math: '[ABC] = [AHB] + [BHC]',
+        show: ['AHB','BHC','areaABC','areaAHB','areaBHC','ABC_copy']
       },
       {
         title: 'Step 5 – Triangle similarity',
-        desc: 'By AA: △ABC ~ △ADB and △ABC ~ △BDC (they share an acute angle and each has a right angle).',
-        math: '△ABC ~ △ADB ~ △BDC',
-        pulse: ['AB','AC','BD','ADB','BDC']
+        desc: 'By AA: △ABC ~ △AHB and △ABC ~ △BHC (they share an acute angle and each has a right angle).',
+        math: '△ABC ~ △AHB ~ △BHC',
+        pulse: ['AB','AC','BH','AHB','BHC']
       },
       {
         title: 'Step 6 – Area scales as length²',
         desc: 'For similar figures, area ratios equal the square of linear scale factors for corresponding sides.',
-        math: '[ABC]/b² = [ADB]/c² = [BDC]/a²',
+        math: '[ABC]/b² = [AHB]/c² = [BHC]/a²',
         show: ['sqAB','sqBC','sqAC','sqLab_c2','sqLab_a2','sqLab_b2'],
-        pulse: ['areaABC','areaADB','areaBDC','labAB','labBC','labAC','sqAB','sqBC','sqAC']
+        pulse: ['areaABC','areaAHB','areaBHC','labAB','labBC','labAC','sqAB','sqBC','sqAC']
       },
       {
         title: 'Step 7 – Pythagorean conclusion',
-        desc: 'Combine the partition [ABC] = [ADB] + [BDC] with the equal ratios to obtain b² = a² + c².',
+        desc: 'Combine the partition [ABC] = [AHB] + [BHC] with the equal ratios to obtain b² = a² + c².',
         math: 'b² = a² + c²',
         pulse: ['AC','ABC']
       }
     ];
 
     const els = Object.fromEntries([
-      'ABC','AB','BC','AC','BD','ADB','BDC',
+      'ABC','AB','BC','AC','BH','AHB','BHC',
       'ABC_copy',
-      'Apt','Bpt','Cpt','Dpt',
-      'Alab','Blab','Clab','Dlab',
+      'Apt','Bpt','Cpt','Hpt',
+      'Alab','Blab','Clab','Hlab',
       'labAB','labBC','labAC',
-      'rightB','areaABC','areaADB','areaBDC',
+      'rightB','areaABC','areaAHB','areaBHC',
       'sqAB','sqBC','sqAC','sqLab_c2','sqLab_a2','sqLab_b2'
     ].map(id => [id, document.getElementById(id)]));
 
