@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite it using the following metadata.
+title: "Pythagorean Theorem – Visual Mini Proof"
+authors:
+  - family-names: Konečný
+    given-names: Michal
+repository-code: "https://github.com/michalkonecny/pythagoras_visual_mini_proof"
+url: "https://michalkonecny.github.io/pythagoras_visual_mini_proof/"
+abstract: >-
+  A short simple visual proof of the Pythagorean theorem via similar triangles 
+  and area scaling, accompanied by a step-by-step animation
+license: GPL-3.0-or-later
+keywords:
+  - Pythagorean theorem
+  - visual proof
+  - geometry
+  - education
+  - SVG
+  - animation
+  - similar triangles
+year: 2025
+version: 1.0.0
+preferred-citation:
+  type: webpage
+  title: "Pythagorean Theorem – Visual Mini Proof"
+  authors:
+    - family-names: Konečný
+      given-names: Michal
+  year: 2025
+  journal: GitHub repository
+  url: "https://github.com/michalkonecny/pythagoras_visual_mini_proof"
