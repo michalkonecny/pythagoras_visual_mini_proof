@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://michalkonecny.github.io/pythagoras_visual_mini_proof/sitemap.xml
