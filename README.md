@@ -1,5 +1,8 @@
 # A short visual proof of the Pythagorean Theorem
 
+([an animated version](https://michalkonecny.github.io/pythagoras_visual_mini_proof/),
+[a detailed version](./proof-gpt5mini.md))
+
 1. Assume a right-angled triangle $\triangle ABC$ with the right angle at vertex $B$.
 2. Let $H$ be the foot of the perpendicular from $B$ to the hypotenuse $AC$.
 3. The two smaller triangles partition the larger triangle, which means their areas sum to the area of the whole: $[\triangle ABC] = [\triangle AHB] + [\triangle BHC]$.
@@ -10,6 +13,5 @@
     - For similar triangles, the ratio of areas equals the square of the ratio of corresponding sides.
 6. Using these ratio equalities, the equation from step 3 translates to $|AC|^2 = |AB|^2 + |BC|^2$.
 
-![Illustration](./proof.drawio.svg)
 
-([Here](./proof-gpt5mini.md) is a more detailed version of this proof (expanded and polished by GPT 5 mini))
+![Illustration](./pythagoras_animation_shot.png)
