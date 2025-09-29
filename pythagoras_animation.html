@@ -144,7 +144,7 @@
           <path id="rightB" class="fade" d="M 150 170 L 170 170 L 170 150" stroke="#111827" stroke-width="3" fill="none" />
 
           <!-- Area labels -->
-          <text id="areaABC" class="arealabel fade" x="205" y="210">[ABC]</text>
+          <text id="areaABC" class="arealabel fade" x="245" y="430">[ABC]</text>
           <text id="areaAHB" class="arealabel fade" x="160" y="255">[AHB]</text>
           <text id="areaBHC" class="arealabel fade" x="305" y="220">[BHC]</text>
         </svg>
@@ -326,17 +326,22 @@
     const COPY_DX = 40;   // 190-150
     const COPY_DY = 220;  // 370-150 (using B -> B')
     function animateCopyFromOriginal() {
-      const el = els['ABC_copy'];
-      if (!el) return;
+      const el1 = els['ABC_copy'];
+      const el2 = els['areaABC'];
+      if (!el1 || !el2) return;
       // Start at original position
-      el.style.transition = 'none';
-      el.style.transform = `translate(${-COPY_DX}px, ${-COPY_DY}px)`;
+      el1.style.transition = 'none';
+      el1.style.transform = `translate(${-COPY_DX}px, ${-COPY_DY}px)`;
+      el2.style.transition = 'none';
+      el2.style.transform = `translate(${-COPY_DX}px, ${-COPY_DY}px)`;
       // Force reflow to apply initial state before animating
-      void el.getBoundingClientRect();
+      void el1.getBoundingClientRect();
       setTimeout(() => {
         // Animate to final location
-        el.style.transition = 'transform 800ms ease';
-        el.style.transform = 'translate(0px, 0px)';
+        el1.style.transition = 'transform 800ms ease';
+        el2.style.transition = 'transform 800ms ease';
+        el1.style.transform = 'translate(0px, 0px)';
+        el2.style.transform = 'translate(0px, 0px)';
       }, 50);
     }
   </script>
