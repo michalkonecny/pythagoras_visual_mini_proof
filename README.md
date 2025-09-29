@@ -1,43 +1,17 @@
-# Pythagorean Theorem – Visual Mini Proof
+# A short visual proof of the Pythagorean Theorem
 
-An interactive, step-by-step animation illustrating a short geometric proof of the Pythagorean theorem, plus concise write-ups.
+([an animated version](https://michalkonecny.github.io/pythagoras_visual_mini_proof/),
+[a detailed version](./proof-gpt5mini.md))
 
-- Proof summaries: `proof.md` and `proof-gpt5mini.md`
-- Interactive animation: `pythagoras_animation.html`
+1. Assume a right-angled triangle $\triangle ABC$ with the right angle at vertex $B$.
+2. Let $H$ be the foot of the perpendicular from $B$ to the hypotenuse $AC$.
+3. The two smaller triangles partition the larger triangle, which means their areas sum to the area of the whole: $[\triangle ABC] = [\triangle AHB] + [\triangle BHC]$.
+4. Now $\triangle ABC$ is similar to $\triangle AHB$ and also to $\triangle BHC$:
+    - $△ABC \sim △AHB$ since they share angle A, and both have right angles
+    - $△ABC \sim △BHC$ since they share angle C, and both have right angles
+5. The ratio of the area $[\triangle ABC]$ to $|AC|^2$ is the same as the ratio of $[\triangle AHB]$ to $|AB|^2$, as well as the ratio of $[\triangle BHC]$ to $|BC|^2$ since:
+    - For similar triangles, the ratio of areas equals the square of the ratio of corresponding sides.
+6. Using these ratio equalities, the equation from step 3 translates to $|AC|^2 = |AB|^2 + |BC|^2$.
 
-## Live demo
 
-Once GitHub Pages is enabled for this repository, the animation will be available at:
-
-- https://michalkonecny.github.io/pythagoras_visual_mini_proof/
-
-If the link shows 404 at first, go to the repository Settings → Pages and select the `gh-pages` branch (root). Publishing can take up to a couple of minutes to go live.
-
-## Run locally
-
-You can also open the animation locally:
-
-1. Open `pythagoras_animation.html` directly in your browser, or
-2. Serve the folder and navigate to the page:
-   - Using Python 3: `python3 -m http.server` then open `http://localhost:8000/pythagoras_animation.html`
-
-## Publishing to GitHub Pages (optional)
-
-If not yet published, you can publish the animation by creating/refreshing a `gh-pages` branch that contains the file as `index.html`:
-
-```
-# from the repo root
-rm -rf .gh-pages
-git worktree add -B gh-pages .gh-pages main
-cp -f pythagoras_animation.html .gh-pages/index.html
-cd .gh-pages
-git add index.html
-git commit -m "Publish animation as index.html for GitHub Pages"
-git push -u origin gh-pages
-```
-
-Then enable GitHub Pages for the repository (Settings → Pages → Branch: `gh-pages` / `/` root).
-
-## License
-
-See `LICENSE`.
+![Illustration](./proof.drawio.svg)
