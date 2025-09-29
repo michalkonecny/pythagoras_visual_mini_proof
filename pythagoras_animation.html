@@ -59,9 +59,9 @@
     .arealabel { font-size: 12px; fill: #111827; font-weight: 700; opacity: .9; }
 
   /* Squares on the three sides */
-  .sq-a { fill: rgba(34, 197, 94, .15); stroke: var(--legA); stroke-width: 2.2; }
-  .sq-b { fill: rgba(167, 139, 250, .15); stroke: var(--hyp); stroke-width: 2.2; }
-  .sq-c { fill: rgba(245, 158, 11, .15); stroke: var(--legB); stroke-width: 2.2; }
+  .sq-b { fill: rgba(34, 197, 94, .15); stroke: var(--legA); stroke-width: 2.2; }
+  .sq-c { fill: rgba(167, 139, 250, .15); stroke: var(--hyp); stroke-width: 2.2; }
+  .sq-a { fill: rgba(245, 158, 11, .15); stroke: var(--legB); stroke-width: 2.2; }
   .sqtext { font-size: 18px; fill: #111827; font-weight: 800; }
 
     .fade { opacity: 0; transition: opacity .6s ease, filter .4s ease; filter: saturate(.5); }
@@ -91,18 +91,18 @@
           </defs>
           <rect x="-60" y="-160" width="760" height="1040" fill="url(#grid)" />
 
-          <!-- Squares on sides: AB (c^2, orange), BC (a^2, green), AC (b^2, purple) -->
+          <!-- Squares on sides: AB (a^2, orange), BC (b^2, green), AC (c^2, purple) -->
           <!-- AB square to the left of AB using w = (-200, 0) -->
-          <polygon id="sqAB" class="sq-c fade" points="150,350 150,150 -50,150 -50,350" />
+          <polygon id="sqAB" class="sq-a fade" points="150,350 150,150 -50,150 -50,350" />
           <!-- BC square above BC using w = (0, -300) -->
-          <polygon id="sqBC" class="sq-a fade" points="150,150 450,150 450,-150 150,-150" />
+          <polygon id="sqBC" class="sq-b fade" points="150,150 450,150 450,-150 150,-150" />
           <!-- AC square now attached to the copy's hypotenuse (A'=(190,570), C'=(490,370), w=(200,300)) -->
-          <polygon id="sqAC" class="sq-b fade" points="190,570 490,370 690,670 390,870" />
+          <polygon id="sqAC" class="sq-c fade" points="190,570 490,370 690,670 390,870" />
           
           <!-- Square labels -->
-          <text id="sqLab_c2" class="sqtext fade" x="50" y="250">c²</text>
-          <text id="sqLab_a2" class="sqtext fade" x="300" y="0">a²</text>
-          <text id="sqLab_b2" class="sqtext fade" x="440" y="620">b²</text>
+          <text id="sqLab_a2" class="sqtext fade" x="50" y="250">a²</text>
+          <text id="sqLab_b2" class="sqtext fade" x="300" y="0">b²</text>
+          <text id="sqLab_c2" class="sqtext fade" x="440" y="620">c²</text>
 
           <!-- Main triangle ABC -->
           <polygon id="ABC" class="tri-main fade" points="150,350 150,150 450,150" />
@@ -136,9 +136,9 @@
           <text id="Hlab" class="label fade" x="248" y="284">H</text>
 
           <!-- Side labels -->
-          <text id="labAB" class="sidelabel fade" x="110" y="255">c = |AB|</text>
-          <text id="labBC" class="sidelabel fade" x="290" y="140">a = |BC|</text>
-          <text id="labAC" class="sidelabel fade" x="290" y="270">b = |AC|</text>
+          <text id="labAB" class="sidelabel fade" x="110" y="255">a = |AB|</text>
+          <text id="labBC" class="sidelabel fade" x="290" y="140">b = |BC|</text>
+          <text id="labAC" class="sidelabel fade" x="290" y="270">c = |AC|</text>
 
           <!-- Right angle marker at B -->
           <path id="rightB" class="fade" d="M 150 170 L 170 170 L 170 150" stroke="#111827" stroke-width="3" fill="none" />
@@ -165,7 +165,7 @@
             <button onclick="resetAll()">↻ Reset</button>
           </div>
           <div class="note" style="margin-top:8px;">
-            Goal: prove b² = a² + c² with area partition and similar triangles.
+            Goal: prove c² = a² + b² with area partition and similar triangles.
           </div>
         </div>
 
@@ -178,7 +178,7 @@
             <li>Sub-triangles AHB and BHC partition area</li>
             <li>Similarity: △ABC ~ △AHB ~ △BHC</li>
             <li>Area ratios scale as square of side ratios</li>
-            <li>Conclude b² = a² + c²</li>
+            <li>Conclude c² = a² + b²</li>
           </ol>
         </div>
       </div>
@@ -195,8 +195,8 @@
       },
       {
         title: 'Step 2 – Label the sides',
-        desc: 'Let a = |BC|, c = |AB|, and b = |AC| (the hypotenuse).',
-        math: 'We aim to show: b² = a² + c²',
+        desc: 'Let b = |BC|, a = |AB|, and c = |AC| (the hypotenuse).',
+        math: 'We aim to show: c² = a² + b²',
         show: ['labAB','labBC','labAC']
       },
       {
@@ -220,14 +220,14 @@
       {
         title: 'Step 6 – Area scales as length²',
         desc: 'For similar figures, area ratios equal the square of linear scale factors for corresponding sides.',
-        math: '[ABC]/b² = [AHB]/c² = [BHC]/a²',
-        show: ['sqAB','sqBC','sqAC','sqLab_c2','sqLab_a2','sqLab_b2'],
+        math: '[ABC]/c² = [AHB]/a² = [BHC]/b²',
+        show: ['sqAB','sqBC','sqAC','sqLab_a2','sqLab_b2','sqLab_c2'],
         pulse: ['areaABC','areaAHB','areaBHC','labAB','labBC','labAC','sqAB','sqBC','sqAC']
       },
       {
         title: 'Step 7 – Pythagorean conclusion',
-        desc: 'Combine the partition [ABC] = [AHB] + [BHC] with the equal ratios to obtain b² = a² + c².',
-        math: 'b² = a² + c²',
+        desc: 'Combine the partition [ABC] = [AHB] + [BHC] with the equal ratios to obtain c² = a² + b².',
+        math: 'c² = a² + b²',
         pulse: ['AC','ABC']
       }
     ];
@@ -239,7 +239,7 @@
       'Alab','Blab','Clab','Hlab',
       'labAB','labBC','labAC',
       'rightB','areaABC','areaAHB','areaBHC',
-      'sqAB','sqBC','sqAC','sqLab_c2','sqLab_a2','sqLab_b2'
+      'sqAB','sqBC','sqAC','sqLab_a2','sqLab_b2','sqLab_c2'
     ].map(id => [id, document.getElementById(id)]));
 
     const titleEl = document.getElementById('stepTitle');
