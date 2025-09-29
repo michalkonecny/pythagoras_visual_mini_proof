@@ -14,4 +14,4 @@
 6. Using these ratio equalities, the equation from step 3 translates to $|AC|^2 = |AB|^2 + |BC|^2$.
 
 
-![Illustration](./proof.drawio.svg)
+![Illustration](./pythagoras_animation_shot.png)
